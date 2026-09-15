@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
 import sqlite3
-
+import os
 app = Flask(__name__)
 
 #secret key
@@ -112,6 +112,12 @@ def logout():
     session.pop("admin_logged_in", None)
 
     return redirect(url_for("login"))
+
+
+@app.route("/cv")
+def cv():
+    file_path = os.path.join(app.root_path, "static", "files")
+    return send_from_directory(file_path, "Devangi_Mitra_CV.pdf")
 
 #run application
 create_database()
