@@ -114,6 +114,7 @@ def logout():
     return redirect(url_for("login"))
 
 #run application
+create_database()
+
 if __name__ == "__main__":
-    create_database()
     app.run(debug=True)
