@@ -1,0 +1,5 @@
+contact.db
+__pycache__/
+.venv/
+.env
+.vscode/
